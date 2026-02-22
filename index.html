@@ -282,6 +282,76 @@ document.getElementById('tabUpload').id = 'tabUpload';
 document.getElementById('tabCamera').id = 'tabCamera';
 document.getElementById('tabHistory').id = 'tabHistory';
 </script>
+<!-- Pro Features Section -->
+<style>
+.pro-section{max-width:600px;width:100%;margin-top:24px;padding:0 16px}
+.pro-section h2{text-align:center;font-size:1.3rem;margin-bottom:16px;color:var(--accent)}
+.pro-mock{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer}
+.pro-mock-inner{filter:blur(3px);opacity:.7;pointer-events:none;padding:16px;background:var(--card);border-radius:var(--radius)}
+.pro-mock-card{background:var(--card2);border-radius:10px;padding:14px;margin-bottom:10px}
+.pro-mock-card .pm-title{font-size:.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;margin-bottom:4px}
+.pro-mock-card .pm-desc{font-size:.85rem;color:var(--text2)}
+.pro-lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(26,26,46,.55);border-radius:var(--radius);z-index:2}
+.pro-lock-icon{font-size:2.8rem;margin-bottom:10px}
+.pro-lock-text{font-size:1.05rem;font-weight:600;color:#fff}
+.pro-lock-sub{font-size:.85rem;color:var(--text2);margin-top:4px}
+.pro-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.pro-modal-overlay.active{display:flex}
+.pro-modal{background:var(--card);border-radius:16px;padding:32px;max-width:420px;width:100%;text-align:center;position:relative;border:1px solid rgba(233,69,96,.3);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.pro-modal h3{font-size:1.4rem;margin-bottom:6px;color:#fff}
+.pro-modal .price{font-size:2rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:10px 0 18px}
+.pro-modal ul{text-align:left;list-style:none;margin-bottom:24px}
+.pro-modal ul li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.92rem;color:var(--text)}
+.pro-modal ul li::before{content:'✓ ';color:#00c853;font-weight:700}
+.pro-modal .btn-upgrade{display:block;width:100%;padding:14px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;text-decoration:none;transition:opacity .2s;margin-bottom:10px}
+.pro-modal .btn-upgrade:hover{opacity:.9}
+.pro-modal .btn-later{background:none;border:none;color:var(--text2);font-size:.9rem;cursor:pointer;padding:8px;transition:color .2s}
+.pro-modal .btn-later:hover{color:var(--text)}
+</style>
+<div class="pro-section">
+  <h2>⚡ Pro Features</h2>
+  <div class="pro-mock" id="proMock">
+    <div class="pro-mock-inner">
+      <div class="pro-mock-card">
+        <div class="pm-title">Batch QR Scanning</div>
+        <div class="pm-desc">Upload multiple images at once — scan 100+ QR codes in seconds with bulk results</div>
+      </div>
+      <div class="pro-mock-card">
+        <div class="pm-title">History Export</div>
+        <div class="pm-desc">Export full scan history as CSV/JSON with timestamps, source files, and metadata</div>
+      </div>
+      <div class="pro-mock-card">
+        <div class="pm-title">Custom QR Code Generator</div>
+        <div class="pm-desc">Generate styled QR codes with custom colors, logos, rounded corners, and gradient fills</div>
+      </div>
+    </div>
+    <div class="pro-lock-overlay">
+      <div class="pro-lock-icon">🔒</div>
+      <div class="pro-lock-text">Unlock Pro Features</div>
+      <div class="pro-lock-sub">Batch Scan · Export · Custom QR Generator</div>
+    </div>
+  </div>
+</div>
+<div class="pro-modal-overlay" id="proModal">
+  <div class="pro-modal">
+    <h3>🔒 QR Code Reader Pro</h3>
+    <div class="price">$14</div>
+    <ul>
+      <li>Batch scanning — process 100+ images at once</li>
+      <li>Full history export (CSV / JSON)</li>
+      <li>Custom styled QR code generator</li>
+      <li>Logo embedding & gradient QR codes</li>
+      <li>Priority support & lifetime updates</li>
+    </ul>
+    <a href="https://feifeicch.gumroad.com/l/ai-qrcode-reader-pro" target="_blank" class="btn-upgrade">Upgrade to Pro — $14</a>
+    <button class="btn-later" id="proModalClose">Maybe later</button>
+  </div>
+</div>
+<script>
+document.getElementById('proMock').addEventListener('click',function(){document.getElementById('proModal').classList.add('active');});
+document.getElementById('proModalClose').addEventListener('click',function(e){e.stopPropagation();document.getElementById('proModal').classList.remove('active');});
+document.getElementById('proModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active');});
+</script>
 <script src="https://lifa-su.github.io/monetize/monetize.js"></script>
 </body>
 </html>
